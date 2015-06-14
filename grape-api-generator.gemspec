@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "grape"
+  spec.add_runtime_dependency "grape-entity"
   spec.add_runtime_dependency "grape-kaminari"
   spec.add_runtime_dependency "grape-swagger"
 

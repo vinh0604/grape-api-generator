@@ -5,7 +5,7 @@ require 'generators/grape/install_generator'
 class InstallGeneratorTest < Rails::Generators::TestCase
   include GrapeApiGenerator::TestHelper
 
-  tests ::Grape::Generators::InstallGenerator
+  tests ::Grape::InstallGenerator
   destination File.expand_path("../../tmp", File.dirname(__FILE__))
   setup :prepare_destination
   setup :copy_routes
@@ -33,5 +33,10 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "add route for api" do
     run_generator %w(my_app)
     assert_file "config/routes.rb", %r(mount MyApp::V1 => '/')
+  end
+
+  test "use correct authentication model" do
+    run_generator %w(my_app --model_name customer)
+    assert_file "app/api/my_app/api_helpers.rb", /def current_customer/
   end
 end
