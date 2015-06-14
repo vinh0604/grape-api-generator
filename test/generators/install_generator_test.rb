@@ -10,6 +10,12 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   setup :prepare_destination
   setup :copy_routes
 
+  test "modify application config" do
+    run_generator %w(my_app)
+    assert_file "config/application.rb", %r(config.paths.add File.join\('app', 'api'\))
+    assert_file "config/application.rb", %r(config.autoload_paths \+= Dir\[Rails.root.join\('app', 'api', '\*'\)\])
+  end
+
   test "generate base api file" do
     run_generator %w(my_app)
     assert_file "app/api/my_app/api.rb", /module MyApp/

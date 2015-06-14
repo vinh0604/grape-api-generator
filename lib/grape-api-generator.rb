@@ -1,0 +1,5 @@
+require 'grape'
+require 'grape-entity'
+require 'grape-kaminari'
+require 'grape-swagger'
+require 'hashie-forbidden_attributes'

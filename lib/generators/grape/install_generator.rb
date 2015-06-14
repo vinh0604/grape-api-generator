@@ -7,6 +7,11 @@ module Grape
 
     source_root File.expand_path("../templates", __FILE__)
 
+    def modify_config
+      application "config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]"
+      application "config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')"
+    end
+
     def create_base_api
       template "api/api.rb",
                "app/api/#{vendor}/api.rb"

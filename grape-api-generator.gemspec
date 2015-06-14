@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "grape-entity"
   spec.add_runtime_dependency "grape-kaminari"
   spec.add_runtime_dependency "grape-swagger"
+  spec.add_runtime_dependency "hashie-forbidden_attributes"
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
