@@ -12,18 +12,34 @@ gem 'grape-api-generator'
 
 Then run `bundle` command to install it.
 
-After you installed the gem, you could run the generator to generate your Grape API skeleton:
+After you installed the gem, you could run the install generator to generate basic `MyApp` API structure:
 
-    rails generate grape:install
+    rails generate grape:install my_app
 
 You could also specify the API version and authentication model in the generator:
 
-    rails generate grape:install --version 2 --model_name customer
+    rails generate grape:install my_app --version 2 --model_name customer
 
-## Todo
+## Scaffolding new resource
 
-- Add generator for API resource (similar to Rails scaffolding).
-- Generate test/spec files.
+To scaffold a resource API, e.g. `Post`
+
+    rails generate grape:scaffold my_app post
+
+It will create the resource API, entity and spec/test files.
+
+You could also specify list of attributes for the resource API:
+
+    rails generate grape:scaffold my_app post title:string:r content published_at:date_time
+
+It will expose `tilte`, `content` and `published_at` in the entity as well as define the params list as following:
+
+```ruby
+requires :title, type: String
+optional :content, type: String
+optional :published_at, type: DateTime
+```
+
 
 ## Contributing
 
