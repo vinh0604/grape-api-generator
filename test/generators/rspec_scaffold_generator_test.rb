@@ -1,9 +1,9 @@
 require 'test_helper'
 
-require 'generators/rspec/grape/scaffold_generator'
+require 'generators/rspec/grape_scaffold_generator'
 
 class RspecScaffoldGeneratorTest < Rails::Generators::TestCase
-  tests ::Rspec::Generators::Grape::ScaffoldGenerator
+  tests ::Rspec::Generators::GrapeScaffoldGenerator
   destination File.expand_path("../../tmp", File.dirname(__FILE__))
   setup :prepare_destination
 

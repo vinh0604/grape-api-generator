@@ -49,6 +49,6 @@ module Grape
       params.join("\n        ")
     end
 
-    hook_for :test_framework
+    hook_for :test_framework, as: :grape_scaffold
   end
 end
